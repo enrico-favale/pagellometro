@@ -1,1 +1,93 @@
 @import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+
+  --app-bg: #020617;
+  --app-surface: #0f172a;
+  --app-surface-2: #111827;
+  --app-border: #1f2937;
+
+  --app-text: #e5e7eb;
+  --app-text-muted: #94a3b8;
+  --app-text-faint: #64748b;
+
+    --brand-primary: #155e75;
+  --brand-primary-hover: #164e63;
+  --brand-primary-strong: #083344;
+
+  --state-success: #22c55e;
+  --state-warning: #f59e0b;
+  --state-danger: #f43f5e;
+
+  --shadow-soft: 0 20px 45px rgb(0 0 0 / 0.35);
+}
+
+@theme inline {
+  --color-app-bg: var(--app-bg);
+  --color-app-surface: var(--app-surface);
+  --color-app-surface-2: var(--app-surface-2);
+  --color-app-border: var(--app-border);
+
+  --color-app-text: var(--app-text);
+  --color-app-text-muted: var(--app-text-muted);
+  --color-app-text-faint: var(--app-text-faint);
+
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-hover: var(--brand-primary-hover);
+  --color-brand-primary-strong: var(--brand-primary-strong);
+
+  --color-state-success: var(--state-success);
+  --color-state-warning: var(--state-warning);
+  --color-state-danger: var(--state-danger);
+
+  --radius-card: 1.5rem;
+  --shadow-app: var(--shadow-soft);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--app-bg);
+  color: var(--app-text);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+input::placeholder {
+  color: var(--app-text-faint);
+}
