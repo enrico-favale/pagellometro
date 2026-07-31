@@ -7,6 +7,8 @@ import RegisterPage from './pages/RegisterPage.jsx'
 import ProfilePage from './pages/ProfilePage.jsx'
 import NewCompetitionPage from './pages/NewCompetitionPage.jsx'
 import ManageCompetitionPage from './pages/ManageCompetitionPage.jsx'
+import MatchDetailsPage from './pages/MatchDetailsPage.jsx'
+import EditMatchPage from './pages/EditMatchPage.jsx'
 
 function App() {
   return (
@@ -39,6 +41,24 @@ function App() {
         element={
           <ProtectedRoute>
             <ManageCompetitionPage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/matches/:matchId"
+        element={
+          <ProtectedRoute>
+            <MatchDetailsPage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/matches/:matchId/edit"
+        element={
+          <ProtectedRoute>
+            <EditMatchPage />
           </ProtectedRoute>
         }
       />

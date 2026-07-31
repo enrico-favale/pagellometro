@@ -46,7 +46,29 @@ function getMatchesLabel(count) {
   return `${count} match`
 }
 
-function MatchItem({ match }) {
+function MatchActions({ matchId, canEdit }) {
+  return (
+    <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center">
+      <Link
+        to={`/matches/${matchId}`}
+        className="inline-flex min-h-11 items-center justify-center rounded-2xl border border-app-border bg-app-surface-2 px-4 py-2 text-sm font-semibold text-app-text transition hover:border-brand-primary hover:text-brand-primary"
+      >
+        Visualizza dettagli
+      </Link>
+
+      {canEdit ? (
+        <Link
+          to={`/matches/${matchId}/edit`}
+          className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-brand-primary px-4 py-2 text-sm font-semibold text-slate-50 transition hover:bg-brand-primary-hover"
+        >
+          Modifica match
+        </Link>
+      ) : null}
+    </div>
+  )
+}
+
+function MatchItem({ match, canEdit }) {
   return (
     <li className="rounded-2xl border border-app-border bg-app-surface px-4 py-4">
       <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
@@ -70,6 +92,8 @@ function MatchItem({ match }) {
           </span>
         </div>
       </div>
+
+      <MatchActions matchId={match.id} canEdit={canEdit} />
     </li>
   )
 }
@@ -113,7 +137,11 @@ function CompetitionSection({ competition, currentUserId }) {
         {matches.length > 0 ? (
           <ul className="space-y-3">
             {matches.map((match) => (
-              <MatchItem key={match.id} match={match} />
+              <MatchItem
+                key={match.id}
+                match={match}
+                canEdit={isOwner}
+              />
             ))}
           </ul>
         ) : (
