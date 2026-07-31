@@ -65,7 +65,6 @@ export function AuthProvider({ children }) {
         password,
         username,
         nome,
-        cognome,
       }) {
         const { data, error } = await supabase.auth.signUp({
           email,
@@ -74,8 +73,7 @@ export function AuthProvider({ children }) {
             emailRedirectTo: buildRedirectUrl('/dashboard'),
             data: {
               username,
-              given_name: nome,
-              family_name: cognome,
+              full_name: nome,
             },
           },
         })
@@ -107,12 +105,65 @@ export function AuthProvider({ children }) {
 
         const { data, error } = await supabase
           .from('profiles')
-          .select('id, email, nome, cognome, username, avatar_url, created_at')
+          .select('id, email, nome, username, avatar_url, created_at')
           .eq('id', currentUser.id)
           .maybeSingle()
 
         if (error) throw error
         return data
+      },
+
+      async updateMyProfile({ username, nome, avatar_url }) {
+        const {
+          data: { user: currentUser },
+        } = await supabase.auth.getUser()
+
+        if (!currentUser) {
+          throw new Error('Utente non autenticato.')
+        }
+
+        const updates = {
+          username,
+          nome,
+          avatar_url,
+          updated_at: new Date().toISOString(),
+        }
+
+        const { data, error } = await supabase
+          .from('profiles')
+          .update(updates)
+          .eq('id', currentUser.id)
+          .select('id, email, nome, username, avatar_url, created_at, updated_at')
+          .single()
+
+        if (error) throw error
+        return data
+      },
+
+      async uploadAvatar(file) {
+        const {
+          data: { user: currentUser },
+        } = await supabase.auth.getUser()
+
+        if (!currentUser) {
+          throw new Error('Utente non autenticato.')
+        }
+
+        const fileExt = file.name.split('.').pop()?.toLowerCase() || 'png'
+        const filePath = `${currentUser.id}/avatar.${fileExt}`
+
+        const { error: uploadError } = await supabase.storage
+          .from('avatars')
+          .upload(filePath, file, {
+            cacheControl: '3600',
+            upsert: true,
+          })
+
+        if (uploadError) throw uploadError
+
+        const { data } = supabase.storage.from('avatars').getPublicUrl(filePath)
+
+        return data.publicUrl
       },
 
       async signOut() {

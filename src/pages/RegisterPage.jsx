@@ -12,7 +12,6 @@ function RegisterPage() {
 
   const [formData, setFormData] = useState({
     nome: '',
-    cognome: '',
     username: '',
     email: '',
     password: '',
@@ -64,7 +63,6 @@ function RegisterPage() {
         password: formData.password,
         username: normalizedUsername,
         nome: formData.nome.trim(),
-        cognome: formData.cognome.trim(),
       })
 
       setSuccessMessage(
@@ -117,25 +115,7 @@ function RegisterPage() {
             type="text"
             value={formData.nome}
             onChange={handleChange}
-            placeholder="Mario"
-            className="w-full rounded-2xl border border-app-border bg-app-surface-2 px-4 py-3 text-sm text-app-text outline-none transition focus:border-brand-primary"
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="cognome"
-            className="mb-2 block text-sm font-medium text-app-text"
-          >
-            Cognome
-          </label>
-          <input
-            id="cognome"
-            name="cognome"
-            type="text"
-            value={formData.cognome}
-            onChange={handleChange}
-            placeholder="Rossi"
+            placeholder="Mario Rossi"
             className="w-full rounded-2xl border border-app-border bg-app-surface-2 px-4 py-3 text-sm text-app-text outline-none transition focus:border-brand-primary"
           />
         </div>

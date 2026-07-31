@@ -30,10 +30,6 @@ function HomePage() {
           <AppButton to="/register" variant="secondary">
             Registrati
           </AppButton>
-
-          <AppButton to="/guest" variant="ghost">
-            Continua come ospite
-          </AppButton>
         </div>
       </section>
     </main>
