@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import ProtectedRoute from './components/auth/ProtectedRoute.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
 import HomePage from './pages/HomePage.jsx'
@@ -10,9 +10,11 @@ import ManageCompetitionPage from './pages/ManageCompetitionPage.jsx'
 import MatchDetailsPage from './pages/MatchDetailsPage.jsx'
 import EditMatchPage from './pages/EditMatchPage.jsx'
 
-function App() {
+function AppRoutes() {
+  const location = useLocation()
+
   return (
-    <Routes>
+    <Routes location={location} key={location.pathname}>
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
@@ -66,6 +68,10 @@ function App() {
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
+}
+
+function App() {
+  return <AppRoutes />
 }
 
 export default App

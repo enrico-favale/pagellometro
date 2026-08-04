@@ -266,7 +266,7 @@ function DashboardPage() {
         </p>
       </section>
 
-      <section className="mx-auto mt-8 max-w-5xl">
+      {/* <section className="mx-auto mt-8 max-w-5xl">
         <div className="flex items-center justify-between gap-4">
           <h2 className="text-2xl font-black tracking-tight text-app-text">
             Le tue statistiche
@@ -276,7 +276,7 @@ function DashboardPage() {
         <div className="mt-6 rounded-card border border-app-border bg-app-surface p-6 text-sm text-app-text-muted shadow-app">
           Non ci sono statistiche disponibili al momento. Le statistiche saranno visibili una volta che avrai partecipato a competizioni e match.
         </div>
-      </section>
+      </section> */}
 
       <section className="mx-auto mt-8 max-w-5xl">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
