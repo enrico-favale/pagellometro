@@ -9,6 +9,7 @@ import NewCompetitionPage from './pages/NewCompetitionPage.jsx'
 import ManageCompetitionPage from './pages/ManageCompetitionPage.jsx'
 import MatchDetailsPage from './pages/MatchDetailsPage.jsx'
 import EditMatchPage from './pages/EditMatchPage.jsx'
+import AuthCallbackPage from './pages/AuthCallbackPage.jsx'
 
 function AppRoutes() {
   return (

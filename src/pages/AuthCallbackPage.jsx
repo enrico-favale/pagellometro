@@ -1,14 +1,16 @@
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { supabase } from '../services/supabaseClient.js'
 
 function AuthCallbackPage() {
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
 
   useEffect(() => {
     let ignore = false
 
     async function handleCallback() {
+      // Supabase legge automaticamente i parametri dall'URL
       const {
         data: { session },
         error,

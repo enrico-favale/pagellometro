@@ -87,7 +87,7 @@ export function AuthProvider({ children }) {
         const { data, error } = await supabase.auth.signInWithOAuth({
           provider: 'google',
           options: {
-            redirectTo: `${window.location.origin}/pagellometro/auth/callback`,
+            redirectTo: `${window.location.origin}/pagellometro/auth/callback.html`,
           },
         })
 
