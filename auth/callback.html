@@ -4,12 +4,10 @@
     <meta charset="UTF-8" />
     <title>Completamento accesso</title>
     <script>
-      // Lascia che Supabase processi il token dall'URL,
-      // poi reindirizza direttamente alla dashboard.
-      // Supabase legge i parametri dal fragment (#access_token=...)
-      // e aggiorna localStorage, quindi il prossimo caricamento
-      // vede già l'utente loggato.
-      window.location.replace('/pagellometro/dashboard')
+      // Torna alla root dell'app React.
+      // React Router gestirà la rotta /auth/callback
+      // e completerà il login.
+      window.location.replace('/pagellometro/')
     </script>
   </head>
   <body>
