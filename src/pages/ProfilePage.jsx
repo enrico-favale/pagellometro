@@ -105,12 +105,12 @@ function ProfilePage() {
 			<section className="mx-auto mt-8 max-w-5xl rounded-card border border-app-border bg-app-surface p-8 shadow-app">
 				<div className="flex items-center gap-4">
 					<img
-						src={profile?.avatar_url || '/avatar-placeholder.png'}
+						src={profile?.avatar_url || 'avatar-placeholder.png'}
 						alt="Avatar profilo"
 						className="h-12 w-12 rounded-full object-cover"
 						onError={(event) => {
 							event.currentTarget.onerror = null
-							event.currentTarget.src = '/avatar-placeholder.png'
+							event.currentTarget.src = 'avatar-placeholder.png'
 						}}
 					/>
 

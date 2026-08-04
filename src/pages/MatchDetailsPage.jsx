@@ -37,7 +37,7 @@ function PerformanceItem({ performance }) {
               className="h-full w-full object-cover"
               onError={(event) => {
                 event.currentTarget.onerror = null
-                event.currentTarget.src = '/avatar-placeholder.png'
+                event.currentTarget.src = 'avatar-placeholder.png'
               }}
             />
           ) : (

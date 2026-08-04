@@ -235,12 +235,12 @@ function DashboardPage() {
             className="block h-11 w-11 overflow-hidden rounded-full border border-app-border bg-app-surface-2 transition hover:border-brand-primary"
           >
             <img
-              src={profile?.avatar_url || '/avatar-placeholder.png'}
+              src={profile?.avatar_url || 'avatar-placeholder.png'}
               alt="Avatar profilo"
               className="h-full w-full object-cover"
               onError={(event) => {
                 event.currentTarget.onerror = null
-                event.currentTarget.src = '/avatar-placeholder.png'
+                event.currentTarget.src = 'avatar-placeholder.png'
               }}
             />
           </Link>

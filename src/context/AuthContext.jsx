@@ -4,7 +4,8 @@ import { supabase } from '../services/supabaseClient.js'
 export const AuthContext = createContext(null)
 
 function buildRedirectUrl(path = '/dashboard') {
-  return `${window.location.origin}${path}`
+  const base = '/pagellometro'
+  return `${window.location.origin}${base}${path}`
 }
 
 export function AuthProvider({ children }) {
@@ -86,7 +87,7 @@ export function AuthProvider({ children }) {
         const { data, error } = await supabase.auth.signInWithOAuth({
           provider: 'google',
           options: {
-            redirectTo: buildRedirectUrl('/dashboard'),
+            redirectTo: `${window.location.origin}/pagellometro/auth/callback`,
           },
         })
 

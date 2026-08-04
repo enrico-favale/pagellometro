@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 function ProfileAvatarButton({ profile }) {
-  const avatarUrl = profile?.avatar_url || '/avatar-placeholder.png'
+  const avatarUrl = profile?.avatar_url || 'avatar-placeholder.png'
 
   return (
     <Link
