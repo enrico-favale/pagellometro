@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pagellometro</title>
+    <script>
+      // Reindirizza tutto alla root dell'app React
+      const path = window.location.pathname;
+      const base = '/pagellometro';
+      // Mantieni il path per React Router
+      window.location.replace(base + path);
+    </script>
+  </head>
+  <body>
+    <p>Reindirizzamento in corso...</p>
+  </body>
+</html>
